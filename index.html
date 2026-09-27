@@ -18,11 +18,11 @@
     <section class="candidate candidate--edim" id="party-edim">
       <div class="candidate__top">
         <div class="candidate__flag">
-          <img src="edim-shkolu-logo.png" alt="Флаг партии «Едим школу»">
+          <img src="edim-shkolu-logo.png" alt="Флаг партии «Единая школа»">
         </div>
         <span class="candidate__index">01</span>
       </div>
-      <h2 class="candidate__name">Едим школу</h2>
+      <h2 class="candidate__name">Единая школа — Матюх</h2>
       <p class="candidate__slogan candidate__slogan--small">Съедим всё, что мешает учиться.</p>
 
       <label class="candidate__control-label" for="slider-edim">Настроить голоса (млн)</label>
@@ -45,7 +45,9 @@
 
     <section class="candidate candidate--darina" id="party-darina">
       <div class="candidate__top">
-        <div class="candidate__emblem">−</div>
+        <div class="candidate__emblem candidate__emblem--photo">
+          <img src="darina-photo.png" alt="Фото партии «Дарина»">
+        </div>
         <span class="candidate__index">02</span>
       </div>
       <h2 class="candidate__name">Дарина</h2>
@@ -71,7 +73,9 @@
 
     <section class="candidate candidate--malika" id="party-malika">
       <div class="candidate__top">
-        <div class="candidate__emblem">−</div>
+        <div class="candidate__emblem candidate__emblem--photo">
+          <img src="malika-photo.png" alt="Фото партии «Малика»">
+        </div>
         <span class="candidate__index">03</span>
       </div>
       <h2 class="candidate__name">Малика</h2>
@@ -92,6 +96,34 @@
       <p class="candidate__count" id="count-malika">0</p>
       <div class="candidate__bar-track">
         <div class="candidate__bar-fill candidate__bar-fill--veto" id="bar-malika"></div>
+      </div>
+    </section>
+
+    <section class="candidate candidate--bogdan" id="party-bogdan">
+      <div class="candidate__top">
+        <div class="candidate__emblem candidate__emblem--photo">
+          <img src="bogdan-photo.png" alt="Фото партии «Богдан»">
+        </div>
+        <span class="candidate__index">04</span>
+      </div>
+      <h2 class="candidate__name">Богдан</h2>
+      <p class="candidate__slogan">Тёмная лошадка этих выборов.</p>
+
+      <label class="candidate__control-label" for="slider-bogdan">Настроить голоса (млрд)</label>
+      <input type="range" class="candidate__slider candidate__slider--veto" id="slider-bogdan" min="1" max="50" value="1" data-party="bogdan">
+
+      <div class="candidate__action">
+        <div class="candidate__stepper">
+          <button class="candidate__step" type="button" data-action="minus" data-party="bogdan" aria-label="Уменьшить">−</button>
+          <span class="candidate__step-value" id="step-bogdan">1</span>
+          <button class="candidate__step" type="button" data-action="plus" data-party="bogdan" aria-label="Увеличить">+</button>
+        </div>
+        <button class="candidate__vote" data-party="bogdan">Голосовать <span aria-hidden="true">→</span></button>
+      </div>
+
+      <p class="candidate__count" id="count-bogdan">0</p>
+      <div class="candidate__bar-track">
+        <div class="candidate__bar-fill candidate__bar-fill--veto" id="bar-bogdan"></div>
       </div>
     </section>
 

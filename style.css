@@ -69,9 +69,9 @@ body {
 
 .booth {
   display: grid;
-  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 1.4rem;
-  max-width: 1100px;
+  max-width: 1350px;
   margin: 1rem auto 2rem;
   padding: 0 1.5rem;
 }
@@ -97,6 +97,7 @@ body {
 .candidate:nth-of-type(1) { animation-delay: 0.05s; }
 .candidate:nth-of-type(2) { animation-delay: 0.15s; }
 .candidate:nth-of-type(3) { animation-delay: 0.25s; }
+.candidate:nth-of-type(4) { animation-delay: 0.35s; }
 
 .candidate--edim {
   border-color: var(--gold);
@@ -142,6 +143,18 @@ body {
   font-size: 1.8rem;
   color: var(--red-veto);
   background: linear-gradient(160deg, var(--black-photo), #000000);
+}
+
+.candidate__emblem--photo {
+  overflow: hidden;
+  padding: 0;
+}
+
+.candidate__emblem--photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.1);
 }
 
 .candidate__name {

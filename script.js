@@ -1,32 +1,23 @@
+const PARTIES = ["edim", "darina", "malika", "bogdan"];
+
 const votes = {
   edim: 0,
   darina: 0,
   malika: 0,
+  bogdan: 0,
 };
 
-const counters = {
-  edim: document.getElementById("count-edim"),
-  darina: document.getElementById("count-darina"),
-  malika: document.getElementById("count-malika"),
-};
+const counters = {};
+const bars = {};
+const sliders = {};
+const stepValues = {};
 
-const bars = {
-  edim: document.getElementById("bar-edim"),
-  darina: document.getElementById("bar-darina"),
-  malika: document.getElementById("bar-malika"),
-};
-
-const sliders = {
-  edim: document.getElementById("slider-edim"),
-  darina: document.getElementById("slider-darina"),
-  malika: document.getElementById("slider-malika"),
-};
-
-const stepValues = {
-  edim: document.getElementById("step-edim"),
-  darina: document.getElementById("step-darina"),
-  malika: document.getElementById("step-malika"),
-};
+PARTIES.forEach((party) => {
+  counters[party] = document.getElementById(`count-${party}`);
+  bars[party] = document.getElementById(`bar-${party}`);
+  sliders[party] = document.getElementById(`slider-${party}`);
+  stepValues[party] = document.getElementById(`step-${party}`);
+});
 
 function formatNumber(n) {
   return n.toLocaleString("ru-RU");
@@ -36,7 +27,7 @@ function syncStep(party) {
   stepValues[party].textContent = sliders[party].value;
 }
 
-Object.keys(sliders).forEach((party) => {
+PARTIES.forEach((party) => {
   sliders[party].addEventListener("input", () => syncStep(party));
   syncStep(party);
 });
@@ -56,20 +47,18 @@ document.querySelectorAll(".candidate__step").forEach((button) => {
 });
 
 function render() {
-  counters.edim.textContent = formatNumber(votes.edim);
-  counters.darina.textContent = formatNumber(votes.darina);
-  counters.malika.textContent = formatNumber(votes.malika);
+  PARTIES.forEach((party) => {
+    counters[party].textContent = formatNumber(votes[party]);
+  });
 
   const maxMagnitude = Math.max(
-    Math.abs(votes.edim),
-    Math.abs(votes.darina),
-    Math.abs(votes.malika),
+    ...PARTIES.map((party) => Math.abs(votes[party])),
     1
   );
 
-  bars.edim.style.width = `${(Math.abs(votes.edim) / maxMagnitude) * 100}%`;
-  bars.darina.style.width = `${(Math.abs(votes.darina) / maxMagnitude) * 100}%`;
-  bars.malika.style.width = `${(Math.abs(votes.malika) / maxMagnitude) * 100}%`;
+  PARTIES.forEach((party) => {
+    bars[party].style.width = `${(Math.abs(votes[party]) / maxMagnitude) * 100}%`;
+  });
 }
 
 function bump(party) {
@@ -96,10 +85,8 @@ document.querySelectorAll(".candidate__vote").forEach((button) => {
 });
 
 document.getElementById("reset-btn").addEventListener("click", () => {
-  votes.edim = 0;
-  votes.darina = 0;
-  votes.malika = 0;
-  Object.keys(sliders).forEach((party) => {
+  PARTIES.forEach((party) => {
+    votes[party] = 0;
     sliders[party].value = 1;
     syncStep(party);
   });
