@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Выборы президента школы — Бюллетень</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="ballot-header">
+    <p class="ballot-header__kicker">Школьный избирательный участок №1</p>
+    <h1 class="ballot-header__title">Кого ты выберешь президентом школы?</h1>
+  </header>
+
+  <main class="booth">
+
+    <section class="candidate candidate--edim" id="party-edim">
+      <div class="candidate__top">
+        <div class="candidate__flag">
+          <img src="edim-shkolu-logo.png" alt="Флаг партии «Едим школу»">
+        </div>
+        <span class="candidate__index">01</span>
+      </div>
+      <h2 class="candidate__name">Едим школу</h2>
+      <p class="candidate__slogan candidate__slogan--small">Съедим всё, что мешает учиться.</p>
+
+      <label class="candidate__control-label" for="slider-edim">Настроить голоса (млн)</label>
+      <input type="range" class="candidate__slider candidate__slider--edim" id="slider-edim" min="1" max="50" value="1" data-party="edim">
+
+      <div class="candidate__action">
+        <div class="candidate__stepper">
+          <button class="candidate__step" type="button" data-action="minus" data-party="edim" aria-label="Уменьшить">−</button>
+          <span class="candidate__step-value" id="step-edim">1</span>
+          <button class="candidate__step" type="button" data-action="plus" data-party="edim" aria-label="Увеличить">+</button>
+        </div>
+        <button class="candidate__vote" data-party="edim">Голосовать <span aria-hidden="true">→</span></button>
+      </div>
+
+      <p class="candidate__count" id="count-edim">0</p>
+      <div class="candidate__bar-track">
+        <div class="candidate__bar-fill candidate__bar-fill--edim" id="bar-edim"></div>
+      </div>
+    </section>
+
+    <section class="candidate candidate--darina" id="party-darina">
+      <div class="candidate__top">
+        <div class="candidate__emblem">−</div>
+        <span class="candidate__index">02</span>
+      </div>
+      <h2 class="candidate__name">Дарина</h2>
+      <p class="candidate__slogan">Партия здравого смысла.</p>
+
+      <label class="candidate__control-label" for="slider-darina">Настроить голоса (млрд)</label>
+      <input type="range" class="candidate__slider candidate__slider--veto" id="slider-darina" min="1" max="50" value="1" data-party="darina">
+
+      <div class="candidate__action">
+        <div class="candidate__stepper">
+          <button class="candidate__step" type="button" data-action="minus" data-party="darina" aria-label="Уменьшить">−</button>
+          <span class="candidate__step-value" id="step-darina">1</span>
+          <button class="candidate__step" type="button" data-action="plus" data-party="darina" aria-label="Увеличить">+</button>
+        </div>
+        <button class="candidate__vote" data-party="darina">Голосовать <span aria-hidden="true">→</span></button>
+      </div>
+
+      <p class="candidate__count" id="count-darina">0</p>
+      <div class="candidate__bar-track">
+        <div class="candidate__bar-fill candidate__bar-fill--veto" id="bar-darina"></div>
+      </div>
+    </section>
+
+    <section class="candidate candidate--malika" id="party-malika">
+      <div class="candidate__top">
+        <div class="candidate__emblem">−</div>
+        <span class="candidate__index">03</span>
+      </div>
+      <h2 class="candidate__name">Малика</h2>
+      <p class="candidate__slogan">Тихо. Спокойно. Малика.</p>
+
+      <label class="candidate__control-label" for="slider-malika">Настроить голоса (млрд)</label>
+      <input type="range" class="candidate__slider candidate__slider--veto" id="slider-malika" min="1" max="50" value="1" data-party="malika">
+
+      <div class="candidate__action">
+        <div class="candidate__stepper">
+          <button class="candidate__step" type="button" data-action="minus" data-party="malika" aria-label="Уменьшить">−</button>
+          <span class="candidate__step-value" id="step-malika">1</span>
+          <button class="candidate__step" type="button" data-action="plus" data-party="malika" aria-label="Увеличить">+</button>
+        </div>
+        <button class="candidate__vote" data-party="malika">Голосовать <span aria-hidden="true">→</span></button>
+      </div>
+
+      <p class="candidate__count" id="count-malika">0</p>
+      <div class="candidate__bar-track">
+        <div class="candidate__bar-fill candidate__bar-fill--veto" id="bar-malika"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="ballot-footer">
+    <p>Слайдер задаёт вес голоса — жми «Голосовать», чтобы применить.</p>
+    <button class="ballot-footer__reset" id="reset-btn">Сбросить голоса</button>
+    <p class="ballot-footer__disclaimer">Голосование абсолютно честное — результаты точно не подстроены.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
